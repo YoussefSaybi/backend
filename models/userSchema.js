@@ -17,7 +17,7 @@ const userSchema = new mongoose.Schema({
 
         user_image : {type : String , require : false, default: "client.png" },
         //etat : Boolean
-        count : Number,
+        count : {type:Number , default: '0'}
 
 
 

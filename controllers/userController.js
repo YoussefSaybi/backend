@@ -97,3 +97,14 @@ module.exports.addUserClientWithImg = async (req , res) => {
         
     }
 }
+module.exports.updateuserById = async (req, res) => {
+    try {
+    const {email , username} = req.body;
+    const  {id}= req.params;
+    await userModel.findByIdAndUpdate(id, {$set : {email ,username }})
+    const updated = await userModel.findById(id);
+    res.status(200).json({updated})
+} catch (error){
+    res.status(500).json({message : error.message})
+
+}}
